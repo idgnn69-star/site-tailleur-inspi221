@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Inspi_221 - Tenues sur mesure</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Google Analytics (à remplacer par ton vrai ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+    
+    <!-- BANNIÈRE PROMO -->
+    <div class="promo-banner">
+        <div class="container text-center">
+            <p class="mb-0">🎁 <strong>OFFRE SPÉCIALE</strong> : 10% de réduction sur votre première commande ! <i class="fab fa-whatsapp ms-2"></i></p>
+        </div>
+    </div>
+
+    <!-- ========== HEADER / NAVIGATION ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-tshirt me-2"></i>Inspi_221
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#modeles">Modèles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#apropos">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== SECTION HERO ========== -->
+    <section id="accueil" class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-8 text-white">
+                    <h1 class="display-4 fw-bold">Des tenues sur mesure</h1>
+                    <h2 class="display-6 mb-4">Pour hommes et femmes</h2>
+                    <p class="lead mb-4">Élégance, qualité et savoir-faire artisanal. Commandez votre tenue unique.</p>
+                    <a href="https://wa.me/221781353820?text=Bonjour%2C%20je%20souhaite%20commander%20une%20tenue%20sur%20mesure" 
+                       class="btn btn-wa btn-lg" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i>Commander via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== STATS (preuve sociale) ========== -->
+    <div class="container py-4">
+        <div class="row text-center">
+            <div class="col-4">
+                <h3 class="text-warning fw-bold">150+</h3>
+                <p>Clients satisfaits</p>
+            </div>
+            <div class="col-4">
+                <h3 class="text-warning fw-bold">72h</h3>
+                <p>Livraison express</p>
+            </div>
+            <div class="col-4">
+                <h3 class="text-warning fw-bold">100%</h3>
+                <p>Sur mesure</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SECTION FILTRES ========== -->
+    <section class="filters-section py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="btn-group flex-wrap gap-2">
+                        <button class="btn btn-filter active" data-filter="all">Tous</button>
+                        <button class="btn btn-filter" data-filter="homme">Homme</button>
+                        <button class="btn btn-filter" data-filter="femme">Femme</button>
+                        <button class="btn btn-filter" data-filter="traditionnel">Traditionnel</button>
+                        <button class="btn btn-filter" data-filter="moderne">Moderne</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION GALERIE / PRODUITS ========== -->
+    <section id="modeles" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nos modèles</h2>
+                <p class="lead">Découvrez notre collection exclusive</p>
+            </div>
+            <div class="row g-4" id="productsContainer">
+                <!-- Les produits seront générés par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION À PROPOS ========== -->
+    <section id="apropos" class="about-section py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="images/p1.png" alt="Notre atelier" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold">À propos de nous</h2>
+                    <p class="lead">Artisan passionné depuis plus de 10 ans</p>
+                    <p>Nous créons des vêtements sur mesure alliant tradition et modernité. Chaque pièce est unique, confectionnée avec des tissus de qualité et une attention particulière aux détails.</p>
+                    <p>Sur commande, nous livrons partout au Mali. Votre satisfaction est notre priorité.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-2"></i>
+                                <span>Livraison rapide</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success fa-2x me-2"></i>
+                                <span>Sur mesure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION TÉMOIGNAGES ========== -->
+    <section class="testimonials-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Ils nous ont fait confiance</h2>
+                <p class="lead">Ce que disent nos clients</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star text-warning mb-3"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <p class="mt-3">"Très belle qualité, la robe était parfaite. Je recommande !"</p>
+                            <h5 class="fw-bold mt-3">- Aïcha D.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star text-warning mb-3"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <p class="mt-3">"Le boubou était magnifique, livré à temps. Merci !"</p>
+                            <h5 class="fw-bold mt-3">- Mamadou K.</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-star text-warning mb-3"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <p class="mt-3">"Je suis ravie de ma tenue, le tissu est de qualité."</p>
+                            <h5 class="fw-bold mt-3">- Fatou S.</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION CONTACT ========== -->
+    <section id="contact" class="contact-section py-5 bg-dark text-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Contactez-nous</h2>
+                <p class="lead">Commandez votre tenue dès aujourd'hui</p>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <i class="fab fa-whatsapp fa-3x text-success mb-3"></i>
+                    <h5>WhatsApp</h5>
+                    <p>+221781353820</p>
+                    <a href="https://wa.me/221781353820" class="btn btn-outline-success btn-sm" target="_blank">Envoyer un message</a>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-map-marker-alt fa-3x text-danger mb-3"></i>
+                    <h5>Localisation</h5>
+                    <p>Bamako, Mali</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <i class="fas fa-clock fa-3x text-info mb-3"></i>
+                    <h5>Horaires</h5>
+                    <p>Lun - Sam : 9h - 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEWSLETTER ========== -->
+<section class="newsletter-section py-5 bg-primary text-white">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold">Recevez nos nouveautés</h3>
+            <p>Inscrivez-vous pour être informé des nouvelles collections</p>
+        </div>
+        
+        <form id="newsletterForm" class="newsletter-form">
+            <div class="newsletter-flex">
+                <input type="tel" id="phoneInput" class="newsletter-input" placeholder="+221781353820" required>
+                <button type="submit" class="newsletter-btn">
+                    <i class="fab fa-whatsapp me-2"></i>S'inscrire
+                </button>
+            </div>
+        </form>
+        
+        <p class="small text-center mt-3 opacity-75">🔒 Nous ne partageons pas vos informations</p>
+    </div>
+</section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer-section py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Inspi_221 - Tous droits réservés</p>
+            <p class="small mt-2">Site créé par [Ton nom]</p>
+            <div class="social-links mt-3">
+                <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://www.tiktok.com/@inspi_221?is_from_webapp=1&sender_device=pc" class="text-white"><i class="fab fa-tiktok fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== BOUTON WHATSAPP FLOTTANT ========== -->
+    <a href="https://wa.me/221781353820?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d%27informations%20sur%20vos%20tenues" 
+       class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

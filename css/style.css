@@ -1,0 +1,822 @@
+/* ========== VARIABLES ========== */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #e74c3c;
+    --whatsapp-color: #25D366;
+    --whatsapp-hover: #128C7E;
+    --bg-light: #f8f9fa;
+}
+
+/* ========== GENERAL ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+    height: 80vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/p1.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* ========== BOUTON WHATSAPP ========== */
+.btn-wa {
+    background-color: var(--whatsapp-color);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-wa:hover {
+    background-color: var(--whatsapp-hover);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ========== BOUTONS FILTRES ========== */
+.btn-filter {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 20px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.btn-filter:hover,
+.btn-filter.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ========== CARTES PRODUITS ========== */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* 🔥 OPTIMISATION : Image sans bordures excessives */
+.product-image {
+    width: 100%;
+    height: 380px;           /* Hauteur fixe mais adaptée */
+    object-fit: cover;       /* Retour à cover mais mieux positionné */
+    object-position: center 30%;  /* Centre sur le haut du corps (tête visible) */
+    background-color: #f5f5f5;
+    transition: transform 0.5s ease;
+}
+
+/* 🔥 VARIANTE : Pour les images très verticales, on peut ajuster */
+.product-image.portrait {
+    object-position: center 25%;
+}
+
+/* 🔥 VARIANTE 2 : Si l'image est paysage */
+.product-image.landscape {
+    object-position: center;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.03);
+}
+
+.product-info {
+    padding: 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin: 0.5rem 0;
+}
+
+.product-description {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.btn-wa-small {
+    background-color: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-wa-small:hover {
+    background-color: var(--whatsapp-hover);
+    color: white;
+}
+
+.badge-custom {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+/* ========== TEMOIGNAGES ========== */
+.testimonial-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ========== BOUTON WHATSAPP FLOTTANT ========== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-color);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--whatsapp-hover);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh;
+        background-attachment: scroll;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .btn-filter {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .product-image {
+        height: 320px;
+        object-position: center 25%;
+    }
+    
+    /* Réduire l'espace entre les cartes sur mobile */
+    .row.g-4 {
+        --bs-gutter-y: 1rem;
+    }
+}
+
+/* ========== SECTION CONTACT ========== */
+.contact-section a {
+    text-decoration: none;
+}
+
+/* ========== FOOTER ========== */
+.footer-section {
+    background-color: #1a1a1a;
+    color: #888;
+}
+
+/* ========== RÉDUIRE L'ESPACE ENTRE LES CARTES ========== */
+.row.g-4 {
+    --bs-gutter-x: 1rem;
+    --bs-gutter-y: 1rem;
+}
+
+@media (min-width: 768px) {
+    .row.g-4 {
+        --bs-gutter-x: 1.2rem;
+        --bs-gutter-y: 1.5rem;
+    }
+}
+
+/* ========== FORCER LES CARTES À ÊTRE PLUS COMPACTES ========== */
+.container {
+    max-width: 1280px;
+}
+
+.product-card {
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+
+/* BANNIÈRE PROMO */
+.promo-banner {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* BANNIÈRE PROMO */
+.promo-banner {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+/* NEWSLETTER SECTION */
+.newsletter-section {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+}
+
+/* SOCIAL LINKS */
+.social-links a {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+    color: #25D366 !important;
+}
+
+/* STATS SECTION */
+.text-warning {
+    color: #e74c3c !important;
+}
+
+/* RESPONSIVE NEWSLETTER */
+@media (max-width: 768px) {
+    .newsletter-section .input-group {
+        flex-direction: column;
+    }
+    .newsletter-section .btn {
+        border-radius: 8px !important;
+        margin-top: 10px;
+    }
+}
+
+
+
+/* ========== SUPER RESPONSIVE - TOUS APPAREILS ========== */
+
+/* Très petits téléphones (moins de 480px) */
+@media (max-width: 480px) {
+    /* Hero section */
+    .hero-section {
+        height: 70vh;
+        min-height: 400px;
+        background-attachment: scroll;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.1rem !important;
+    }
+    
+    .hero-section .lead {
+        font-size: 0.9rem;
+    }
+    
+    .btn-wa.btn-lg {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    /* Stats */
+    .text-warning.fw-bold {
+        font-size: 1.2rem;
+    }
+    
+    .container .row.text-center p {
+        font-size: 0.7rem;
+    }
+    
+    /* Filtres */
+    .btn-filter {
+        padding: 4px 10px;
+        font-size: 0.7rem;
+    }
+    
+    /* Produits */
+    .product-image {
+        height: 250px;
+    }
+    
+    .product-title {
+        font-size: 1rem;
+    }
+    
+    .product-price {
+        font-size: 1.2rem;
+    }
+    
+    .product-description {
+        font-size: 0.75rem;
+    }
+    
+    /* Témoignages */
+    .testimonial-card .card-body p {
+        font-size: 0.85rem;
+    }
+    
+    /* Newsletter */
+    .newsletter-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .newsletter-section .input-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-section .btn {
+        border-radius: 8px !important;
+        margin-top: 10px;
+    }
+    
+    /* Contact */
+    .contact-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Footer */
+    .footer-section p {
+        font-size: 0.7rem;
+    }
+    
+    .social-links a {
+        font-size: 0.9rem;
+    }
+    
+    /* WhatsApp flottant */
+    .whatsapp-float {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Téléphones moyens (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .product-image {
+        height: 300px;
+    }
+    
+    .btn-filter {
+        padding: 6px 14px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Tablettes (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .product-image {
+        height: 340px;
+    }
+    
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Grands écrans (1400px et plus) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+    
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+    
+    .product-image {
+        height: 420px;
+    }
+    
+    .product-title {
+        font-size: 1.4rem;
+    }
+    
+    .product-price {
+        font-size: 1.6rem;
+    }
+}
+
+/* ========== ORIENTATION PAYSAGE (téléphone horizontal) ========== */
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero-section {
+        height: 100vh;
+        min-height: 400px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1rem;
+    }
+    
+    .product-image {
+        height: 200px;
+    }
+}
+
+/* ========== AMÉLIORATIONS TOUCHES (mobile) ========== */
+@media (max-width: 768px) {
+    /* Boutons plus grands pour les doigts */
+    .btn-filter,
+    .btn-wa-small,
+    .btn-wa,
+    .navbar-toggler {
+        min-height: 44px;
+    }
+    
+    /* Espacement des liens de navigation */
+    .navbar-nav .nav-link {
+        padding: 12px 15px;
+    }
+    
+    /* Meilleur espacement des cartes */
+    .row.g-4 {
+        --bs-gutter-y: 1rem;
+    }
+    
+    /* Texte plus lisible */
+    body {
+        font-size: 16px;
+    }
+    
+    /* Ajustement du padding général */
+    section {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+}
+
+/* ========== ÉCRANS TRÈS LARGES (TV, écrans 4K) ========== */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero-section h1 {
+        font-size: 4rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 2.5rem;
+    }
+    
+    .product-image {
+        height: 500px;
+    }
+}
+
+/* ========== GESTION DES IMAGES PRODUITS (tous appareils) ========== */
+.product-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4; /* Ratio portrait professionnel */
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+/* Ajustement du ratio sur mobile */
+@media (max-width: 768px) {
+    .product-image {
+        aspect-ratio: 2 / 3;
+    }
+}
+
+/* ========== CORRECTION BOUTON NEWSLETTER ========== */
+.newsletter-section .input-group {
+    flex-wrap: wrap;
+}
+
+.newsletter-section .form-control {
+    border-radius: 8px 0 0 8px;
+}
+
+.newsletter-section .btn {
+    border-radius: 0 8px 8px 0;
+}
+
+@media (max-width: 576px) {
+    .newsletter-section .form-control {
+        border-radius: 8px;
+    }
+    
+    .newsletter-section .btn {
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+}
+
+/* ========== ANIMATIONS DOUCES (évite le lag sur mobile) ========== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========== NEWSLETTER CORRIGÉE (responsive) ========== */
+.newsletter-section {
+    background: linear-gradient(135deg, #075E54, #128C7E);
+    padding: 40px 20px !important;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+.newsletter-input {
+    flex: 2;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    outline: none;
+    background: white;
+    color: #333;
+    font-weight: 500;
+}
+
+.newsletter-input:focus {
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.5);
+}
+
+.newsletter-input::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+.newsletter-btn {
+    flex: 1;
+    padding: 14px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background-color: #FFC107;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+    background-color: #ffca2c;
+    transform: translateY(-2px);
+}
+
+.newsletter-btn i {
+    font-size: 18px;
+}
+
+/* ========== RESPONSIVE NEWSLETTER (TOUS TÉLÉPHONES) ========== */
+@media (max-width: 768px) {
+    .newsletter-section {
+        padding: 30px 15px !important;
+    }
+    
+    .newsletter-section h3 {
+        font-size: 1.4rem;
+    }
+    
+    .newsletter-section p {
+        font-size: 0.85rem;
+    }
+    
+    .newsletter-flex {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+        text-align: center;
+        border-radius: 50px;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 16px;
+        border-radius: 50px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Très petits téléphones (moins de 400px) */
+@media (max-width: 480px) {
+    .newsletter-section {
+        padding: 25px 12px !important;
+    }
+    
+    .newsletter-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .newsletter-input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+    
+    .newsletter-btn {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+}
+
+/* Téléphones moyens (400px - 600px) */
+@media (min-width: 400px) and (max-width: 600px) {
+    .newsletter-flex {
+        flex-direction: column;
+    }
+    
+    .newsletter-input {
+        border-radius: 50px;
+    }
+    
+    .newsletter-btn {
+        border-radius: 50px;
+    }
+}
+
+/* Tablettes (600px - 900px) */
+@media (min-width: 600px) and (max-width: 900px) {
+    .newsletter-flex {
+        flex-direction: row;
+    }
+    
+    .newsletter-input {
+        border-radius: 50px 0 0 50px;
+    }
+    
+    .newsletter-btn {
+        border-radius: 0 50px 50px 0;
+        white-space: nowrap;
+    }
+}
